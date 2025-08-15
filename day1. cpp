@@ -1,0 +1,34 @@
+#include <iostream>
+using namespace std;
+
+int main() 
+{
+    int arr[]= { 0,1,2,1,0,2,1,0};
+    int n= sizeof(arr) /sizeof(arr[0]);
+    
+    int left=0, mid=0, right=n-1;
+    
+    while(mid<=right){
+        if(arr[mid]==0){
+            int t=arr[left];
+            arr[left]=arr[mid];
+            arr[mid]=t;
+            left++;
+            mid++;
+        }
+        else if(arr[mid]==1){
+            mid++;
+        }
+        else{
+            int t=arr[mid];
+            arr[mid]=arr[right];
+            arr[right]=t;
+            right--;
+            }
+    }
+    for(int I=0;I<n;I++){
+        cout<<arr[I]<<" ";
+    }
+    return 0;
+}
+
