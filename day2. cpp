@@ -1,0 +1,20 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int arr[]= {1, 2,4,5};
+    int n=sizeof(arr)/sizeof(arr[0]);
+    int p=n+1;
+    
+    int expected_sum=(p*(p+1))/2;
+    int actual_sum=0;
+    
+    int I=0;
+    for(I=0;I<n;I++){
+    actual_sum=actual_sum + arr[I];
+    }
+    int missing=expected_sum - actual_sum;
+    cout<<"missing: "<<missing;
+    
+    return 0;
+}
