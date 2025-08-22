@@ -1,0 +1,33 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+   string reverse_words(string s){
+    string temp;
+    int n=s.size() ;
+    for(int I=0;I<n;I++){
+        if(!(s[I]==' '&&(temp.empty() ||temp.back()==' '))){
+            temp. push_back(s[I]);
+        }
+    }
+    if(! temp. empty() && temp. back() ==' ')
+    temp. pop_back();
+    
+    reverse(temp.begin(),temp.end());
+    
+    int start=0;
+    for(int I=0; I<=(int)temp.size(); I++){
+        if(I==(int)temp.size() || temp[I]==' '){
+            reverse(temp.begin() +start, temp.begin() +I);
+            start=I+1;
+        }
+    }
+    return temp;
+ }
+int main() {
+    string s="the sky is blue";
+    cout<<reverse_words(s)<<endl;
+    return 0;
+}
+ 
+    
