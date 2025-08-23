@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+
+  string longest_common_prefix(string str[],int n){
+  if (n==0)
+  return "";
+  
+  string prefix=str[0];
+  for(int I=1; I<n; I++){
+      string word=str[I];
+      int j=0;
+      
+      while(j<prefix.size() && j<word.size() && prefix [j]==word[j]) {
+          j++;
+      }
+      prefix =prefix.substr(0, j);
+      if(prefix.empty() )
+      return "";
+  }
+  return prefix;
+}
+int main() {
+    string str[]={"flower", "flow", "flight"};
+    int n=3;
+    cout<<longest_common_prefix(str, n)<<endl;
+    return 0;
+}
