@@ -1,0 +1,35 @@
+#include <iostream>
+#include<vector>
+#include<unordered_map>
+#include<algorithm>
+using namespace std;
+
+vector<vector<string>>group_anagrams(vector<string>& strs){
+    unordered_map<string,vector<string>> mp;
+    
+    for(string word:strs){
+        string sorted_word=word;
+        sort(sorted_word.begin(), sorted_word.end() );
+        mp [sorted_word].push_back(word);
+    } 
+    vector<vector<string>>result;
+    for(auto&pair:mp){
+        result. push_back(pair.second);
+    }
+    return result;
+}
+int main() {
+    vector<string>strs={"eat", "tea","tan","ate","nat","bat"};
+    
+    vector<vector<string>>groups=group_anagrams(strs); 
+    cout<<"[";
+    for(auto group:groups){
+        cout<<"[";
+        for(auto word:group){
+            cout<<word<<" ";
+        }
+        cout<<"]";
+    }
+    cout<<"]";
+    return 0;
+}
