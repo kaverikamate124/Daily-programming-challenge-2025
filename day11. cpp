@@ -1,0 +1,26 @@
+#include <iostream>
+#include<set>
+using namespace std;
+
+set<string> result;
+void permute(string&s, int l,int r){
+    if(l==r){
+        result. insert(s);
+        return;
+    }
+    for(int I=l;I<=r;I++){
+        swap(s[l],s[I]);
+        permute(s, l+1, r);
+        swap(s[l],s[I]);
+    }
+}
+int main() {
+    string s="abc";
+    permute(s, 0,s.size()-1);
+    cout<<"[";
+    for(auto &str: result){
+        cout<<"\""<<str<<"\"";
+    }
+    cout<<"]"<<endl;
+    return 0;
+}
