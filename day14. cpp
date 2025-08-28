@@ -1,0 +1,31 @@
+#include <iostream>
+#include <set>
+#include <string>
+using namespace std;
+
+int exact_k(string s, int k){
+    int n=s.size() ;
+    int ans=0;
+    
+    for(int I=0;I<n;I++){
+        set<char>distinct;
+        for(int j=I;j<n;j++){
+            distinct. insert(s[j]);
+            if(distinct.size() ==k){
+                ans++;
+            }
+            else if(distinct.size() >k){
+                break;
+            }
+        }
+    }
+    return ans;
+}
+
+int main() {
+    string s="pqpqs";
+    int k=2;
+    cout<<exact_k(s, k)<<endl;
+    return 0;
+}
+    
