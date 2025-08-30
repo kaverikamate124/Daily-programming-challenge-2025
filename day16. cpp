@@ -1,0 +1,20 @@
+#include <iostream>
+using namespace std;
+
+long long HCF(long long a, long long b){
+    while(b!=0){
+        long long temp;
+        temp = b ;
+        b = a % b ;
+        a = temp ;
+    }
+    return a;
+}
+long long LCM(long long a, long long b){
+    return(a/HCF(a, b)) *b;
+}
+int main() {
+    long long N=4, M=6;
+    cout<<"LCM of "<<N<<" and "<<M<<" is: "<<LCM(N, M)<<endl;
+    return 0;
+}
