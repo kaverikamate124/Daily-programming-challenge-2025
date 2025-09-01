@@ -1,0 +1,18 @@
+#include <stdio.h>
+int main() {
+    int N;
+    scanf("%d",&N);
+    int count=0;
+    for(int I=1;I*I<=N;I++){
+        if(N==0){
+            if(I*I==N){
+                count++;
+            }
+            else {
+                count=count+2;
+            }
+        }
+    }
+    printf("\n%d",count);
+    return 0;
+}
