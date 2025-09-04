@@ -1,0 +1,41 @@
+#include <iostream>
+#include <stack>
+using namespace std;
+void insert_Bottom(stack<int>& st, int a) {
+    if (st.empty()) {
+        st.push(a);
+        return;
+    }
+    int top=st.top();
+    st.pop();
+    insert_Bottom(st,a);
+    st.push(top);
+}
+void reverse_Stack(stack<int>&st){
+    if (st.empty()) 
+    return;
+    int top=st.top();
+    st.pop();
+    reverse_Stack(st);
+    insert_Bottom(st,top);
+}
+void print_Stack(stack<int>st){
+    while(!st.empty()){
+        cout<<st.top()<<" ";
+        st.pop();
+    }
+    cout<<endl;
+}
+int main() {
+    stack<int>st;
+    st.push(4);
+    st.push(3);
+    st.push(2);
+    st.push(1);
+    cout<<"Original Stack: ";
+    print_Stack(st);
+    reverse_Stack(st);
+    cout<<"Reversed Stack: ";
+    print_Stack(st);
+    return 0;
+}
