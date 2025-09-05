@@ -1,0 +1,19 @@
+#include <iostream>
+#include <unordered_map>
+#include <vector>
+using namespace std;
+int main() {
+    vector<int> arr{3,1,4,4,5,2,6, 1,4};
+    int k=2;
+    unordered_map<int, int> freq;
+    for(int I=0;I<arr.size() ;I++){
+        freq[arr[I]]++;
+    }  
+    for(int I=0; I < arr.size(); I++){
+        if(freq[arr[I]]==k){
+            cout<<arr[I];
+            return 0;
+        }
+    }
+    cout<<-1<<endl;
+}
